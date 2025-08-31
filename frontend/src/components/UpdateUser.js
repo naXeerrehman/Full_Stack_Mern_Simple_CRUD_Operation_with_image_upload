@@ -12,11 +12,13 @@ const UpdateUser = () => {
 
   const { id } = useParams();
 
+const BACKEND_URL=process.env.BACKEND_URL
+
   const fetch_user_by_id = async () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:5000/api/users/get_user/${id}`
+        `${BACKEND_URL}/api/users/get_user/${id}`
       );
       setName(response.data.name);
       setEmail(response.data.email);
@@ -55,7 +57,7 @@ const UpdateUser = () => {
         });
       }
       const response = await axios.put(
-        `http://localhost:5000/api/users/update_user/${id}`,
+        `${BACKEND_URL}/api/users/update_user/${id}`,
         formData
       );
       console.log(response.data.user);

@@ -11,6 +11,8 @@ const UploadUser = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const BACKEND_URL = process.env.BACKEND_URL;
+
   const handle_file_change = (e) => {
     setImages((prev) => [...prev, ...e.target.files]);
   };
@@ -35,7 +37,7 @@ const UploadUser = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:5000/api/users/create_user",
+        `${BACKEND_URL}/api/users/create_user`,
         formData
       );
 
@@ -49,8 +51,7 @@ const UploadUser = () => {
         navigate("/");
       }, 2000);
     } catch (error) {
-      const errorMsg =
-        error.response?.data?.message || "Something went wrong!";
+      const errorMsg = error.response?.data?.message || "Something went wrong!";
       setMessage(errorMsg);
       setIsError(true);
       console.error(errorMsg);

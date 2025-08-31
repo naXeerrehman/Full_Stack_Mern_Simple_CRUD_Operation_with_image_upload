@@ -7,12 +7,12 @@ const UsersList = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const BACKEND_URL = process.env.BACKEND_URL;
+
   const fetch_users = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(
-        "http://localhost:5000/api/users/get_users"
-      );
+      const response = await axios.get(`${BACKEND_URL}/api/users/get_users`);
       setUser(response.data);
     } catch (error) {
       console.log("Error Fetching Users", error);
@@ -28,7 +28,7 @@ const UsersList = () => {
   const handle_delete = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/users/delete_user/${id}`
+        `${BACKEND_URL}/api/users/delete_user/${id}`
       );
       setMessage(response.data.message);
       fetch_users();

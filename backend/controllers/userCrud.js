@@ -5,6 +5,15 @@ const create_user = async (req, res) => {
   try {
     const { name, email } = req.body;
 
+    // Check for duplicate email
+    const existingEmail = await User.findOne({ email });
+    if (existingEmail) {
+      return res
+        .status(409)
+        .json({ message: "Email already exists, Please login!" });
+    }
+
+    // Create new user
     const newUser = new User({
       name,
       email,
@@ -13,9 +22,15 @@ const create_user = async (req, res) => {
 
     await newUser.save();
 
-    res.status(201).json("User Created");
+    res.status(201).json({
+      message: "User Created Successfully",
+      user: newUser,
+    });
   } catch (error) {
-    console.error("Error Creation");
+    console.error("Error:", error.message);
+    res
+      .status(500)
+      .json({ message: "Error creating user", error: error.message });
   }
 };
 

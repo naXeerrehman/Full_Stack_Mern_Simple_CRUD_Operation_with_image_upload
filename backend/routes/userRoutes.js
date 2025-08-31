@@ -12,7 +12,7 @@ import { uploadImages, resizeImages } from "../Middlewares/image_upload.js";
 const router = express.Router();
 
 // Route to create a new item with images
-router.post("/create_user", uploadImages, resizeImages, create_user);
+router.post("/create_user", uploadImages, resizeImages,create_user);
 
 // Route to get all item
 router.get("/get_users", get_users);

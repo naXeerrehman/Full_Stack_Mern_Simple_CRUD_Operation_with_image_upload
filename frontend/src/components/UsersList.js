@@ -49,23 +49,29 @@ const UsersList = () => {
       <div className="flex flex-col">
         <div className="flex justify-between border-2 border-yellow-400 px-2 my-1 font-bold rounded-md">
           <h1>S/No</h1>
-          <h1>Name</h1>
+          <h1 className="relative right-8 md:right-12">Name</h1>
           <h1>Email</h1>
           <h1>Image</h1>
         </div>
 
         {loading ? (
           <div className="text-center">Loading...</div>
-        ) : user.length === 0 ? (<div className="text-center my-2">No user found<br></br>Click below button to Upload</div>) : (
-          <div>
+        ) : user.length === 0 ? (
+          <div className="text-center my-2">
+            No user found<br></br>Click below button to Upload
+          </div>
+        ) : (
+          <div className="overflow-x-auto">
             {user.map((user, index) => (
               <div
                 key={user._id}
-                className="flex flex-col sm:text-[12px] text-sm md:text-xl lg:text-lg my-1 border border-yellow-400 rounded-md py-1"
+                className="flex flex-col flex-wrap my-1 border border-yellow-400 rounded-md py-1 text-sm md:text-2xl lg:text-lg min-w-max"
               >
                 <div className="flex justify-between w-full items-center px-2 h-6 space-x-1">
                   <div>{index + 1}</div>
-                  <div className="relative lg:left-16">{user.name}</div>
+                  <div className="relative lg:left-8 whitespace-nowrap">
+                    {user.name}
+                  </div>
                   <div>{user.email}</div>
                   <div className="w-10 md:w-14 mt-6">
                     <img src={user.images} alt="" />

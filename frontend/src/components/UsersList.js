@@ -56,7 +56,7 @@ const UsersList = () => {
 
         {loading ? (
           <div className="text-center">Loading...</div>
-        ) : (
+        ) : user.length === 0 ? (<div className="text-center my-2">No user found<br></br>Click below button to Upload</div>) : (
           <div>
             {user.map((user, index) => (
               <div

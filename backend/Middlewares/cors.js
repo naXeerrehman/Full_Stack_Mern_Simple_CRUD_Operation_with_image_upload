@@ -7,7 +7,7 @@ app.use(express.json());
 const corsMiddleware = (app) => {
   const allowedOrigins = [
     process.env.FRONTEND_URL,
-    "https://full-stack-mern-simple-crud-operati-two.vercel.app/",
+ "   https://frontend-of-full-stack-mern-simple.vercel.app",
     /\.vercel\.app$/,
   ];
 

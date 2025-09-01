@@ -7,7 +7,7 @@ const UsersList = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const BACKEND_URL = process.env.BACKEND_URL;
+  const BACKEND_URL =process.env.REACT_APP_BACKEND_URL
 
   const fetch_users = async () => {
     setLoading(true);

@@ -12,7 +12,7 @@ const UpdateUser = () => {
 
   const { id } = useParams();
 
-const BACKEND_URL=process.env.BACKEND_URL
+const BACKEND_URL=process.env.REACT_APP_BACKEND_URL
 
   const fetch_user_by_id = async () => {
     try {

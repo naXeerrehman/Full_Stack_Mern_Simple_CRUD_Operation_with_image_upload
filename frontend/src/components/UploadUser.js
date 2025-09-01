@@ -11,7 +11,7 @@ const UploadUser = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const BACKEND_URL = process.env.BACKEND_URL;
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   const handle_file_change = (e) => {
     setImages((prev) => [...prev, ...e.target.files]);
@@ -127,9 +127,8 @@ const UploadUser = () => {
       {/* ✅ Message Display */}
       {message && (
         <div
-          className={`text-center mt-2 ${
-            isError ? "text-red-600" : "text-green-600"
-          }`}
+          className={`text-center mt-2 ${isError ? "text-red-600" : "text-green-600"
+            }`}
         >
           {message}
         </div>

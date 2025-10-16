@@ -15,7 +15,7 @@ const router = express.Router();
 router.post("/create_user", uploadImages, resizeImages,create_user);
 
 // Route to get all item
-router.get("/get_users", get_users);
+router.get("/", get_users);
 
 // Route to get a item by ID
 router.get("/get_user/:id", get_user_by_id);

@@ -12,7 +12,7 @@ const UsersList = () => {
   const fetch_users = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${BACKEND_URL}/api/users/get_users`);
+      const response = await axios.get(`${BACKEND_URL}/api/users`);
       setUser(response.data);
     } catch (error) {
       console.log("Error Fetching Users", error);

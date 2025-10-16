@@ -44,7 +44,7 @@ const UsersList = () => {
   return (
     <div className="flex flex-col justify-center px-2 mt-16 lg:px-[300px] lg:mt-8">
       <h1 className="text-2xl font-bold mt-2 flex justify-center bg-yellow-400 text-black rounded-md">
-        User List
+        Users List
       </h1>
       <div className="flex flex-col">
         <div className="flex justify-between border-2 border-yellow-400 px-2 my-1 font-bold rounded-md">
